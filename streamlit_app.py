@@ -2,6 +2,8 @@ import streamlit as st
 import requests
 import time
 from datetime import datetime
+import pytz
+IST = pytz.timezone("Asia/Kolkata")
 from cryptography.hazmat.primitives.asymmetric import ed25519
 from urllib.parse import urlencode
 import urllib
@@ -321,7 +323,7 @@ def render_card(r, is_buy=True, rank=1):
 # ══════════════════════════════════════════════════════════════
 def main():
     # Header
-    now = datetime.now().strftime("%d %b %Y  %H:%M IST")
+    now = datetime.now(IST).strftime("%d %b %Y  %H:%M IST")
     st.markdown(f"""
     <div class="header-box">
         <h1 style="color:#FFD700;margin:0">🚀 Crypto Screener</h1>
